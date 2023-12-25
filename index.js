@@ -7,8 +7,10 @@ import hotelsRoute from './routes/hotels.js'
 import roomsRoute from './routes/rooms.js'
 const app = express();
 
+// dotenv config
 dotenv.config()
 
+// mongoose connected mongoDB
 const connect= async ()=>{
     try {
         await mongoose.connect(process.env.MONGO,{
@@ -31,7 +33,7 @@ app.use('/api/users', usersRoute)
 app.use('/api/hotels', hotelsRoute)
 app.use('/api/rooms', roomsRoute)
 
-
+// basic code
 app.listen(8000, () => {
     connect()
     console.log("Connected to backend.")
